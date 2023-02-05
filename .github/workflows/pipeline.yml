@@ -1,9 +1,11 @@
 name: Develop CI/CD pipeline
 
-on:
-  pull_request:
-    branches:
-      - devops
+#on:
+#  pull_request:
+#    branches:
+#      - devops
+
+on: push
 
 env:
   MESSAGE: "Hi from Github"
