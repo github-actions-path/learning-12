@@ -16,7 +16,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Run the script
-        run: python app.py
+        run: /usr/local/bin/python3 app.py
   py-cicd-build:
     name: py-cicd-build
     runs-on: syr-org-v1

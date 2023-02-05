@@ -1,4 +1,6 @@
-import date
+import datetime
+
+x = datetime.datetime.now()
 
 print("Hi from Python")
-print(date.now())
+print(x)
