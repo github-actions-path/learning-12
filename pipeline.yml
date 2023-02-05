@@ -1,7 +1,7 @@
 name: Develop CI/CD pipeline
 
 on:
-  pull_requests:
+  pull_request:
     branches:
       - devops
 
@@ -16,7 +16,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Run the script
-        runs: python app.py
+        run: python app.py
   py-cicd-build:
     name: py-cicd-build
     runs-on: syr-org-v1
@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           name: py-artifact
-          path: *.py
+          path: app.py
