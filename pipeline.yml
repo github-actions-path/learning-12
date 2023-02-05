@@ -1,0 +1,31 @@
+name: Develop CI/CD pipeline
+
+on:
+  pull_requests:
+    branches:
+      - devops
+
+env:
+  MESSAGE: "Hi from Github"
+  
+jobs:
+  py-cicd-test:
+    name: py-cicd-test
+    runs-on: syr-org-v1
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Run the script
+        runs: python app.py
+  py-cicd-build:
+    name: py-cicd-build
+    runs-on: syr-org-v1
+    needs: [py-cicd-test]
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Create an artifact
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: py-artifact
+          path: *.py
